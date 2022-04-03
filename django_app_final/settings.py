@@ -26,9 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xa6rd79unt+*d&q-x_iq1lp-y_ltx*t8&^vj69p3dn2(-(duf2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config("DEBUG",default = False,cast = bool)
 
-ALLOWED_HOSTS = []
+RUN_LOCAL_DB = config('RUN_LOCAL_DB', default=False, cast=bool)
+
+ALLOWED_HOSTS = [
+    '127.0.01',
+    'localhost',
+    '*.herokuapp.com',
+]
 
 
 # Application definition
@@ -61,7 +67,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': False,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -132,9 +138,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Singapore'
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 
