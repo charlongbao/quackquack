@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<style>  body {padding-top: 70px;}   </style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOME</a>
+    <a href="{% url 'library' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BOOK SEAT!</a>
+    <a href="{% url 'all_bookings' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ALL BOOKINGS</a>
+    <a href="{% url 'signout' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOG OUT</a>
+  </div>
+</div>
+
+
+<div class="w3-container">
+  <div class="w3-center">
+    <h2>My Bookings</h2>
+    <p w3-class="w3-large">View All of Your Past Bookings</p>
+  </div>
+<div class="w3-responsive w3-card-4">
+<table class="w3-table w3-striped w3-bordered">
+<thead>
+<tr class="w3-theme">
+  <th>Library</th>
+  <th>Level</th>
+  <th>Seat No.</th>
+  <th>Day</th>
+  <th>Start Time</th>
+  <th>End Time</th>
+</tr>
+</thead>
+<tbody>
+  {% for i in query%}
+    <tr>
+      <td>{{i.library}}</td>
+      <td>{{i.level}}</td>
+      <td>{{i.seat}}</td>
+      <td>{{i.book_date}}</td>
+      <td>{{i.start_time}}</td>
+      <td>{{i.end_time}}</td>
+      <form method="POST">
+        {% csrf_token %}
+        <td><button type = "submit" value="{{i.occupied_id}}" name="Next"> Delete Booking </button></td>
+      </form>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+</div>
