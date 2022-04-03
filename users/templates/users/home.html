@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+<style>  body {padding-top: 70px;}   </style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOME</a>
+    <a href="{% url 'library' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BOOK SEAT!</a>
+    <a href="{% url 'all_bookings' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ALL BOOKINGS</a>
+    <a href="{% url 'signout' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOG OUT</a>
+  </div>
+</div>
+
+<!-- Modal -->
+
+<div class="w3-row-padding w3-center w3-margin-top">
+  <form action="" method = 'POST'>
+      {% csrf_token %}
+      {{ form.date }}
+      <input type="submit" value="submit">
+  </form> 
+</div>
+
+<div class="w3-row-padding w3-center w3-margin-top">
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Central Library (CLB)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in CLB %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Wan Boo Sow Chinese Library (WSLB)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in WSLB %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>C J Koh Law Library (KKL)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in KKL %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+</div>   
+
+<div class="w3-row-padding w3-center w3-margin-top">
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Hon Sui Sen Memorial Library (HSSL)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in HSSL %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Medical Library (MDL)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in MDL %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Music Library (MSL)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in MSL %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+</div>  
+
+<div class="w3-row-padding w3-center w3-margin-top">
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Science Library (SCL)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in SCL %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+
+  <div class="w3-third">
+      <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Yale-NUS College Library (YNCL)</h3><br>
+      <p>Total Seats: 75</p>
+      <p>Opening Hours: Mon-Fri 9am to 9pm</p>
+      <table class="w3-table w3-striped w3-bordered">
+          <thead>
+              <tr class="w3-theme">
+                  <th> Library </th>
+                  <th> Level </th>
+                  <th> Occupied Seats </th>
+                  <th> All Seats </th>
+              </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in YNCL %}
+              <tr>
+                  <td>{{ i.0 }}</td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td>{{ i.3 }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+  </div>
+</div>  
+</body>
+</html> 
