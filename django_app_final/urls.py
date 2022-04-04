@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from booking import views as booking_views
 from users import views as users_views
+import admin_app.views as admin_views
 
+"""
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', users_views.signup, name='signup'),
@@ -32,3 +34,4 @@ urlpatterns = [
     path('end_time/', booking_views.end_time, name='end_time'),
     path('all_bookings/', booking_views.all_bookings, name='all_bookings'),
 ]
+"""
